@@ -84,16 +84,18 @@ export default function Booking() {
   const diffTime = Math.abs(date2 - date1);
   const nights = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) || 1;
 
-  const originalTotal = selectedRoom ? selectedRoom.price * nights : 0;
-  let total = originalTotal;
+  const basePrice = selectedRoom ? selectedRoom.price * nights : 0;
+  let discount = 0;
 
   if (appliedPromo && selectedRoomId !== 'standard-flash-sale') {
     if (appliedPromo.type === 'percent') {
-      total = Math.round(originalTotal * (1 - appliedPromo.value / 100));
+      discount = Math.round(basePrice * (appliedPromo.discount / 100));
     } else if (appliedPromo.type === 'amount') {
-      total = Math.max(0, originalTotal - appliedPromo.value);
+      discount = appliedPromo.discount;
     }
   }
+
+  const total = Math.max(0, basePrice - discount);
 
   // Handle applied promo code
   const handleApplyPromo = () => {
