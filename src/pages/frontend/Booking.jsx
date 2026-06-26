@@ -24,6 +24,7 @@ export default function Booking() {
   const [slipFileName, setSlipFileName] = useState('');
   const [completedBooking, setCompletedBooking] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [liffObj, setLiffObj] = useState(null);
 
   const selectedRoom = rooms.find(r => r.id === selectedRoomId);
 
@@ -42,6 +43,7 @@ export default function Booking() {
     const initLiff = async () => {
       try {
         const liff = (await import('@line/liff')).default;
+        setLiffObj(liff);
         const liffId = import.meta.env.VITE_LIFF_ID || '';
         if (liffId) {
           await liff.init({ liffId });
@@ -73,59 +75,49 @@ export default function Booking() {
     if (selectedRoomId === 'standard-flash-sale') {
       setAppliedPromo(null);
       setPromoCode('');
-      setPromoError('');
     }
   }, [selectedRoomId]);
 
-  // Calculate nights
-  const getNights = () => {
-    if (!checkIn || !checkOut) return 1;
-    const date1 = new Date(checkIn);
-    const date2 = new Date(checkOut);
-    const diffTime = Math.abs(date2 - date1);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return diffDays || 1;
-  };
+  // Calculations
+  const date1 = new Date(checkIn);
+  const date2 = new Date(checkOut);
+  const diffTime = Math.abs(date2 - date1);
+  const nights = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) || 1;
 
-  const nights = getNights();
+  const originalTotal = selectedRoom ? selectedRoom.price * nights : 0;
+  let total = originalTotal;
 
-  // Calculate prices
-  const getBasePrice = () => {
-    if (!selectedRoom) return 0;
-    return selectedRoom.price * nights;
-  };
-
-  const basePrice = getBasePrice();
-
-  const getDiscountAmount = () => {
-    if (!appliedPromo || selectedRoomId === 'standard-flash-sale') return 0;
+  if (appliedPromo && selectedRoomId !== 'standard-flash-sale') {
     if (appliedPromo.type === 'percent') {
-      return Math.round((basePrice * appliedPromo.discount) / 100);
+      total = Math.round(originalTotal * (1 - appliedPromo.value / 100));
+    } else if (appliedPromo.type === 'amount') {
+      total = Math.max(0, originalTotal - appliedPromo.value);
     }
-    return appliedPromo.discount;
-  };
+  }
 
-  const discount = getDiscountAmount();
-  const total = Math.max(0, basePrice - discount);
-
-  // Apply promo
+  // Handle applied promo code
   const handleApplyPromo = () => {
-    setPromoError('');
-    const codeObj = promotions.find(p => p.code.toUpperCase() === promoCode.trim().toUpperCase());
-    if (codeObj) {
-      setAppliedPromo(codeObj);
+    if (selectedRoomId === 'standard-flash-sale') {
+      setPromoError('ห้องโปรโมชั่น Flash Sale ไม่สามารถใช้โค้ดส่วนลดร่วมได้');
+      return;
+    }
+    const found = promotions.find(p => p.code.toUpperCase() === promoCode.toUpperCase());
+    if (found) {
+      setAppliedPromo(found);
+      setPromoError('');
     } else {
-      setPromoError('รหัสโปรโมชันไม่ถูกต้อง');
+      setPromoError('ไม่พบโค้ดส่วนลดนี้ หรือโค้ดหมดอายุแล้ว');
       setAppliedPromo(null);
     }
   };
 
-  // Convert slip to Base64
+  // Handle Slip Upload
   const handleSlipChange = (e) => {
     const file = e.target.files[0];
     if (!file) return;
 
     setSlipFileName(file.name);
+
     const reader = new FileReader();
     reader.onloadend = () => {
       setSlipBase64(reader.result);
@@ -163,6 +155,215 @@ export default function Booking() {
       setCompletedBooking(result);
       setIsSubmitting(false);
       setStep(4);
+
+      // Send LINE Flex Message & Quick Reply
+      if (liffObj && liffObj.isLoggedIn() && liffObj.isInClient()) {
+        liffObj.sendMessages([
+          {
+            type: 'flex',
+            altText: `ยืนยันการจองห้องพัก ${result.roomName}`,
+            contents: {
+              type: 'bubble',
+              hero: {
+                type: 'image',
+                url: result.slipImage || 'https://images.unsplash.com/photo-1616077168079-7e09a677fb2c?q=80&w=500&auto=format&fit=crop',
+                size: 'full',
+                aspectRatio: '20:13',
+                aspectMode: 'cover'
+              },
+              body: {
+                type: 'box',
+                layout: 'vertical',
+                contents: [
+                  {
+                    type: 'text',
+                    text: 'Sino Thungsong Hotel',
+                    weight: 'bold',
+                    size: 'xl',
+                    color: '#d92b2b'
+                  },
+                  {
+                    type: 'text',
+                    text: 'จองห้องพักสำเร็จ (รออนุมัติ)',
+                    weight: 'bold',
+                    size: 'md',
+                    color: '#111111',
+                    margin: 'md'
+                  },
+                  {
+                    type: 'box',
+                    layout: 'vertical',
+                    margin: 'lg',
+                    spacing: 'sm',
+                    contents: [
+                      {
+                        type: 'box',
+                        layout: 'baseline',
+                        spacing: 'sm',
+                        contents: [
+                          {
+                            type: 'text',
+                            text: 'รหัสการจอง',
+                            color: '#aaaaaa',
+                            size: 'sm',
+                            flex: 3
+                          },
+                          {
+                            type: 'text',
+                            text: result.id,
+                            wrap: true,
+                            color: '#666666',
+                            size: 'sm',
+                            flex: 5
+                          }
+                        ]
+                      },
+                      {
+                        type: 'box',
+                        layout: 'baseline',
+                        spacing: 'sm',
+                        contents: [
+                          {
+                            type: 'text',
+                            text: 'ผู้จอง',
+                            color: '#aaaaaa',
+                            size: 'sm',
+                            flex: 3
+                          },
+                          {
+                            type: 'text',
+                            text: result.customerName,
+                            wrap: true,
+                            color: '#666666',
+                            size: 'sm',
+                            flex: 5
+                          }
+                        ]
+                      },
+                      {
+                        type: 'box',
+                        layout: 'baseline',
+                        spacing: 'sm',
+                        contents: [
+                          {
+                            type: 'text',
+                            text: 'ห้องพัก',
+                            color: '#aaaaaa',
+                            size: 'sm',
+                            flex: 3
+                          },
+                          {
+                            type: 'text',
+                            text: result.roomName,
+                            wrap: true,
+                            color: '#666666',
+                            size: 'sm',
+                            flex: 5
+                          }
+                        ]
+                      },
+                      {
+                        type: 'box',
+                        layout: 'baseline',
+                        spacing: 'sm',
+                        contents: [
+                          {
+                            type: 'text',
+                            text: 'วันเข้าพัก',
+                            color: '#aaaaaa',
+                            size: 'sm',
+                            flex: 3
+                          },
+                          {
+                            type: 'text',
+                            text: `${result.checkIn} ถึง ${result.checkOut}`,
+                            wrap: true,
+                            color: '#666666',
+                            size: 'sm',
+                            flex: 5
+                          }
+                        ]
+                      },
+                      {
+                        type: 'box',
+                        layout: 'baseline',
+                        spacing: 'sm',
+                        contents: [
+                          {
+                            type: 'text',
+                            text: 'ยอดชำระ',
+                            color: '#aaaaaa',
+                            size: 'sm',
+                            flex: 3
+                          },
+                          {
+                            type: 'text',
+                            text: `฿${result.totalPrice}`,
+                            wrap: true,
+                            color: '#d92b2b',
+                            weight: 'bold',
+                            size: 'sm',
+                            flex: 5
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              footer: {
+                type: 'box',
+                layout: 'vertical',
+                spacing: 'sm',
+                contents: [
+                  {
+                    type: 'button',
+                    style: 'link',
+                    height: 'sm',
+                    action: {
+                      type: 'uri',
+                      label: 'ดูรายละเอียดการจอง',
+                      uri: `https://thungsonghotel.com/`
+                    }
+                  }
+                ]
+              }
+            },
+            quickReply: {
+              items: [
+                {
+                  type: 'action',
+                  action: {
+                    type: 'message',
+                    label: 'เช็คสถานะการจอง 🔍',
+                    text: 'เช็คสถานะการจอง'
+                  }
+                },
+                {
+                  type: 'action',
+                  action: {
+                    type: 'message',
+                    label: 'ติดต่อเจ้าหน้าที่ 📞',
+                    text: 'ติดต่อเจ้าหน้าที่'
+                  }
+                },
+                {
+                  type: 'action',
+                  action: {
+                    type: 'message',
+                    label: 'หน้าแรกโรงแรม 🏨',
+                    text: 'หน้าแรกโรงแรม'
+                  }
+                }
+              ]
+            }
+          }
+        ]).then(() => {
+          console.log('LINE message sent successfully');
+        }).catch((err) => {
+          console.error('Failed to send LINE message:', err);
+        });
+      }
     }, 1000);
   };
 
