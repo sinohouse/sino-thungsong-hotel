@@ -214,8 +214,43 @@ export default async function handler(req, res) {
   return res.status(200).json({ ok: true });
 }
 
+const quickReplyPayload = {
+  items: [
+    {
+      type: 'action',
+      action: {
+        type: 'message',
+        label: 'เช็คสถานะการจอง 🔍',
+        text: 'เช็คสถานะการจอง'
+      }
+    },
+    {
+      type: 'action',
+      action: {
+        type: 'message',
+        label: 'ติดต่อเจ้าหน้าที่ 📞',
+        text: 'ติดต่อเจ้าหน้าที่'
+      }
+    },
+    {
+      type: 'action',
+      action: {
+        type: 'message',
+        label: 'หน้าแรกโรงแรม 🏨',
+        text: 'หน้าแรกโรงแรม'
+      }
+    }
+  ]
+};
+
 async function replyMessage(replyToken, messages) {
   if (!LINE_CHANNEL_ACCESS_TOKEN) return;
+
+  // Attach quick replies to the final message in the array
+  if (messages && messages.length > 0) {
+    const lastMsg = messages[messages.length - 1];
+    lastMsg.quickReply = quickReplyPayload;
+  }
 
   try {
     await fetch('https://api.line.me/v2/bot/message/reply', {
