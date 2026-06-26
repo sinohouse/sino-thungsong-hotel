@@ -412,11 +412,11 @@ export default function Booking() {
 
           {/* Step 1: Search & Room Setup */}
           {step === 1 && (
-            <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '40px' }}>
-              <div style={{ backgroundColor: '#ffffff', padding: '30px', borderRadius: '15px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-premium)' }}>
+            <div className="booking-grid">
+              <div className="booking-card">
                 <h3 style={{ color: '#111', fontSize: '18px', marginBottom: '20px' }}>ข้อมูลการเช็คอิน</h3>
                 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
+                <div className="booking-inputs-grid-2">
                   <div className="form-group">
                     <label>วันที่เช็คอิน</label>
                     <input type="date" value={checkIn} onChange={e => setCheckIn(e.target.value)} />
@@ -427,7 +427,7 @@ export default function Booking() {
                   </div>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '2.2fr 1.8fr', gap: '20px', marginBottom: '20px' }}>
+                <div className="booking-inputs-grid-2-alt">
                   <div className="form-group">
                     <label>เลือกประเภทห้อง</label>
                     <select value={selectedRoomId} onChange={e => setSelectedRoomId(e.target.value)}>
@@ -460,7 +460,7 @@ export default function Booking() {
 
               {/* Billing Summary */}
               <div>
-                <div style={{ backgroundColor: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '15px', padding: '30px', boxShadow: 'var(--shadow-premium)' }}>
+                <div className="booking-card">
                   <h3 style={{ color: '#111', fontSize: '18px', marginBottom: '20px' }}>สรุปยอดเงิน</h3>
                   
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '14px', marginBottom: '12px', color: 'var(--text-gray)' }}>
@@ -526,7 +526,7 @@ export default function Booking() {
 
           {/* Step 2: Guest Information (Name, Phone required, Email optional) */}
           {step === 2 && (
-            <div style={{ maxWidth: '650px', margin: '0 auto', backgroundColor: '#ffffff', padding: '35px', borderRadius: '15px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-premium)' }}>
+            <div className="booking-card-step2">
               <h3 style={{ color: '#111', fontSize: '18px', marginBottom: '20px' }}>กรอกข้อมูลผู้เข้าพัก</h3>
               
               <form onSubmit={handleGuestSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -568,12 +568,12 @@ export default function Booking() {
 
           {/* Step 3: Detailed Booking Summary + Total + Bank & QR Code + Upload Slip */}
           {step === 3 && (
-            <div style={{ maxWidth: '750px', margin: '0 auto', backgroundColor: '#ffffff', padding: '35px', borderRadius: '15px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-premium)' }}>
+            <div className="booking-card-step3">
               <h3 style={{ color: '#111', fontSize: '20px', marginBottom: '25px', textAlign: 'center', borderBottom: '1px solid rgba(0,0,0,0.06)', paddingBottom: '12px' }}>
                 สรุปรายละเอียดการจอง & ชำระเงิน
               </h3>
               
-              <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '30px', marginBottom: '30px' }}>
+              <div className="booking-payment-grid">
                 {/* Detailed Summary Block */}
                 <div style={{ background: 'var(--bg-card-light)', padding: '20px', borderRadius: '12px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   <h4 style={{ color: '#111', fontSize: '14px', borderBottom: '1px solid rgba(0,0,0,0.05)', paddingBottom: '8px' }}>รายละเอียดการจอง</h4>
