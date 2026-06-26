@@ -37,6 +37,37 @@ export default function Booking() {
     setCheckOut(tomorrow.toISOString().split('T')[0]);
   }, []);
 
+  // --- LINE LIFF INTEGRATION ---
+  useEffect(() => {
+    const initLiff = async () => {
+      try {
+        const liff = (await import('@line/liff')).default;
+        const liffId = import.meta.env.VITE_LIFF_ID || '';
+        if (liffId) {
+          await liff.init({ liffId });
+          if (liff.isLoggedIn()) {
+            const profile = await liff.getProfile();
+            if (profile) {
+              setName(profile.displayName || '');
+              const userEmail = liff.getDecodedIDToken()?.email;
+              if (userEmail) {
+                setEmail(userEmail);
+              }
+            }
+          } else {
+            if (liff.isInClient()) {
+              liff.login();
+            }
+          }
+        }
+      } catch (err) {
+        console.error('LIFF Init error:', err);
+      }
+    };
+    initLiff();
+  }, []);
+
+
   // Calculate nights
   const getNights = () => {
     if (!checkIn || !checkOut) return 1;
