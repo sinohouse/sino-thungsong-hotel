@@ -28,7 +28,9 @@ export default function Footer() {
       </div>
       <div className="footer-bottom">
         <p>ลิขสิทธิ์ &copy; 2026 โรงแรม ชิโน ทุ่งสง - สงวนสิทธิ์ทุกประการ</p>
-        <p class="developer-tag">Designed with Passion</p>
+        <p className="developer-tag">
+          By <a href="https://kiraluxproperty.com" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Kiralux property</a>
+        </p>
       </div>
     </footer>
   );

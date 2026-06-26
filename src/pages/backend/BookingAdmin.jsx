@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
-import { ClipboardList, BedDouble, Tag, Users, Home, Check, X, Trash2, Eye, LogOut } from 'lucide-react';
+import { ClipboardList, BedDouble, Tag, Users, Home, Check, X, Trash2, Eye, LogOut, Image as ImageIcon, FileText } from 'lucide-react';
 
 export default function BookingAdmin() {
   const { currentUser, logout, bookings, updateBookingStatus, deleteBooking } = useContext(AppContext);
@@ -69,6 +69,14 @@ export default function BookingAdmin() {
             <Link to="/admin/promotions" style={{ display: 'flex', alignItems: 'center', gap: '12px', background: '#181822', color: '#f1f1f5', padding: '15px 20px', borderRadius: '10px' }} className="admin-menu-link">
               <Tag size={18} color="#e2c077" />
               <span>จัดการโปรโมชัน</span>
+            </Link>
+            <Link to="/admin/gallery" style={{ display: 'flex', alignItems: 'center', gap: '12px', background: '#181822', color: '#f1f1f5', padding: '15px 20px', borderRadius: '10px' }} className="admin-menu-link">
+              <ImageIcon size={18} color="#e2c077" />
+              <span>จัดการรูปภาพแกลเลอรี</span>
+            </Link>
+            <Link to="/admin/blogs" style={{ display: 'flex', alignItems: 'center', gap: '12px', background: '#181822', color: '#f1f1f5', padding: '15px 20px', borderRadius: '10px' }} className="admin-menu-link">
+              <FileText size={18} color="#e2c077" />
+              <span>จัดการบทความท่องเที่ยว</span>
             </Link>
             <Link to="/admin/users" style={{ display: 'flex', alignItems: 'center', gap: '12px', background: '#181822', color: '#f1f1f5', padding: '15px 20px', borderRadius: '10px' }} className="admin-menu-link">
               <Users size={18} color="#e2c077" />

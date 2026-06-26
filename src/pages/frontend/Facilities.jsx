@@ -1,47 +1,57 @@
 import React from 'react';
-import { Wifi, Car, ShieldCheck, HelpCircle, Sparkles, Coffee, Tv, Accessibility, MapPin, Navigation, Train, ShoppingBag } from 'lucide-react';
+import { Wifi, Car, ShieldCheck, Coffee, Tv, MapPin, Navigation, Train, ShoppingBag, Bed, Wind, Briefcase, Utensils, Bath, Sofa, Compass, UtensilsCrossed } from 'lucide-react';
 
 export default function Facilities() {
   const list = [
     { 
-      icon: <Car size={36} color="var(--accent-red)" />, 
-      title: 'พื้นที่จอดรถกว้างขวาง & ปลอดภัย', 
-      desc: 'โรงแรมมีที่จอดรถส่วนตัวรองรับรถยนต์ส่วนบุคคลและรถตู้คณะสัมมนาได้มากกว่า 30 คัน ลานจอดรถติดตั้งไฟส่องสว่างทั่วถึงและควบคุมความปลอดภัยด้วยระบบกล้องวงจรปิด (CCTV) ตลอด 24 ชั่วโมง' 
+      icon: <Coffee size={36} color="var(--accent-red)" />, 
+      title: 'ชา กาแฟ ขนม ฟรี ทุกวัน เวลา 07.00-11.00', 
+      desc: 'เริ่มต้นวันใหม่อย่างสดใสด้วยบริการเครื่องดื่มชา กาแฟ และขนมขบเคี้ยวฟรีทุกเช้า ณ บริเวณพื้นที่ส่วนกลาง' 
     },
     { 
       icon: <Wifi size={36} color="var(--accent-red)" />, 
-      title: 'ฟรีอินเทอร์เน็ตไฟเบอร์ออฟติกความเร็วสูง', 
-      desc: 'บริการ Wi-Fi ความเร็วสูงพิเศษ (Fiber Optic ความเร็วสูงสุด 1000/500 Mbps) ครอบคลุมสัญญาณทุกตารางนิ้วในห้องพัก ล็อบบี้ และพื้นที่ส่วนกลาง ตอบโจทย์ทั้งการพักผ่อนและการทำงานทางไกล (Work from Hotel)' 
+      title: 'อินเทอร์เน็ต Wi-Fi ความเร็วสูง', 
+      desc: 'ให้บริการฟรีทุกห้องพัก สัญญาณเสถียร ครอบคลุมทุกพื้นที่ เหมาะสำหรับการพักผ่อนและทำงานอย่างไร้อุปสรรค' 
     },
     { 
-      icon: <HelpCircle size={36} color="var(--accent-red)" />, 
-      title: 'แผนกต้อนรับต้อนรับดูแล 24 ชั่วโมง', 
-      desc: 'เจ้าหน้าที่ต้อนรับพร้อมสแตนด์บายให้บริการเช็คอิน-เช็คเอาต์ อำนวยความสะดวกในเรื่องข้อมูลการเดินทางในอำเภอทุ่งสง แนะนำแหล่งอาหารของกินอร่อยๆ และบริการรับฝากสัมภาระอย่างปลอดภัย' 
+      icon: <Tv size={36} color="var(--accent-red)" />, 
+      title: 'สมาร์ททีวี (Smart TV)', 
+      desc: 'รองรับการเชื่อมต่ออินเทอร์เน็ต รับชมช่องทีวีและความบันเทิงยอดนิยมอย่างครบครันในห้องพักส่วนตัว' 
+    },
+    { 
+      icon: <Bed size={36} color="var(--accent-red)" />, 
+      title: 'เตียงนอนคุณภาพสูง', 
+      desc: 'พร้อมชุดเครื่องนอนหนานุ่ม คัดสรรมาเป็นพิเศษเพื่อรองรับสรีระและการนอนหลับพักผ่อนที่สบายที่สุด' 
+    },
+    { 
+      icon: <Wind size={36} color="var(--accent-red)" />, 
+      title: 'เครื่องปรับอากาศ', 
+      desc: 'เครื่องปรับอากาศประหยัดพลังงานในทุกห้องพัก สามารถปรับอุณหภูมิความเย็นได้ตามความต้องการของคุณ' 
+    },
+    { 
+      icon: <Briefcase size={36} color="var(--accent-red)" />, 
+      title: 'พื้นที่ทำงานส่วนตัว', 
+      desc: 'จัดเตรียมโต๊ะทำงานและเก้าอี้ พร้อมเต้ารับไฟฟ้าในตำแหน่งที่เหมาะสมสำหรับสายทำงานและ Business Travelers' 
+    },
+    { 
+      icon: <Utensils size={36} color="var(--accent-red)" />, 
+      title: 'ตู้เย็นและมินิบาร์', 
+      desc: 'มาพร้อมน้ำดื่มสะอาดบรรจุขวดฟรีทุกวัน และตู้เย็นขนาดกะทัดรัดสำหรับแช่เครื่องดื่มหรือของว่างส่วนตัว' 
+    },
+    { 
+      icon: <Bath size={36} color="var(--accent-red)" />, 
+      title: 'ห้องน้ำส่วนตัว', 
+      desc: 'สะดวกสบายด้วยเครื่องทำน้ำอุ่นระบบความปลอดภัยสูง พร้อมชุดของใช้ในห้องน้ำ (Toiletries) คุณภาพครบครัน' 
     },
     { 
       icon: <ShieldCheck size={36} color="var(--accent-red)" />, 
-      title: 'มาตรฐานความสะอาดระดับสากล (SHA)', 
-      desc: 'ทำความสะอาดจุดสัมผัสสาธารณะทุกชั่วโมงด้วยน้ำยาฆ่าเชื้อ พนักงานผ่านการอบรมสุขอนามัยวิถีใหม่ และมีการจัดวางเจลแอลกอฮอล์ล้างมือในจุดบริการหลักอย่างทั่วถึง' 
+      title: 'ระบบรักษาความปลอดภัย 24 ชั่วโมง', 
+      desc: 'ปลอดภัยอุ่นใจตลอดการเข้าพัก ด้วยเจ้าหน้าที่รักษาความปลอดภัยและกล้องวงจรปิด (CCTV) บันทึกภาพทั่วบริเวณโรงแรม' 
     },
     { 
-      icon: <Sparkles size={36} color="var(--accent-red)" />, 
-      title: 'แม่บ้านดูแลและทำความสะอาดรายวัน', 
-      desc: 'บริการทำความสะอาดห้องพัก เปลี่ยนถังขยะ และจัดระเบียบห้องพักทุกวันโดยช่างฝีมือแม่บ้านระดับมาตรฐาน พร้อมจัดเตรียมชุดผ้าเช็ดตัวใหม่เอี่ยม ผ้าเช็ดเท้า และสบู่แชมพูใหม่ทุกวัน' 
-    },
-    { 
-      icon: <Coffee size={36} color="var(--accent-red)" />, 
-      title: 'พื้นที่ล็อบบี้ต้อนรับและการจัดจำหน่ายเครื่องดื่ม', 
-      desc: 'ล็อบบี้ต้อนรับขนาดใหญ่ดีไซน์สว่างโปร่งสบาย นั่งพักผ่อนเช็คอินได้ผ่อนคลาย พร้อมมุมตู้แช่เครื่องดื่มเย็นๆ น้ำอัดลม น้ำเปล่า และขนมขบเคี้ยวไว้บริการจำหน่ายที่เคาน์เตอร์' 
-    },
-    {
-      icon: <Tv size={36} color="var(--accent-red)" />,
-      title: 'สิ่งบันเทิงและสมาร์ททีวีครบครัน',
-      desc: 'ห้องพักติดตั้งทีวีจอแอลอีดีขนาดใหญ่ รองรับช่องสัญญาณเคเบิลทีวีหลัก และระบบสมาร์ททีวีให้คุณเชื่อมต่อรับชมความบันเทิงอย่าง YouTube หรือสตรีมมิ่งอื่นๆ ได้อย่างเพลิดเพลิน'
-    },
-    {
-      icon: <Accessibility size={36} color="var(--accent-red)" />,
-      title: 'การออกแบบทางเข้าออกที่สะดวกสบาย',
-      desc: 'โครงสร้างโรงแรมออกแบบมาเพื่อรองรับผู้เดินทางทุกกลุ่ม มีราวจับและทางลาดสำหรับกระเป๋าเดินทางล้อลากขนาดใหญ่ ช่วยให้การขนย้ายสัมภาระเข้าห้องพักเป็นเรื่องง่ายดาย'
+      icon: <Sofa size={36} color="var(--accent-red)" />, 
+      title: 'พื้นที่พักผ่อนส่วนกลาง (Lobby Lounge)', 
+      desc: 'พื้นที่รับรองบริเวณล็อบบี้กว้างขวาง บรรยากาศผ่อนคลาย เหมาะสำหรับการนั่งเล่น นัดพบเพื่อน หรือคุยธุรกิจ' 
     }
   ];
 
@@ -64,6 +74,18 @@ export default function Facilities() {
     { title: 'สถานีรถไฟชุมทางทุ่งสง (ตรงข้ามโรงแรม)', distance: '20 เมตร', info: 'เดินข้ามถนนเพียง 1 นาที เหมาะสำหรับผู้เดินทางด้วยรถไฟสายใต้', icon: <Train size={18} color="var(--accent-red)" /> },
     { title: 'ร้านสะดวกซื้อ (7-Eleven / CJ Supermarket)', distance: '15 เมตร', info: 'เปิดบริการตลอด 24 ชั่วโมง สะดวกซื้อของกินของใช้อยู่เยื้องหน้าโรงแรม', icon: <ShoppingBag size={18} color="var(--accent-red)" /> },
     { title: 'หลาดชุมทางทุ่งสง / ตลาดโต้รุ้ง', distance: '200 เมตร', info: 'แหล่งรวมอาหารคาวหวานและผักผลไม้สดท้องถิ่นรสชาติดีเลิศราคากันเอง', icon: <ShoppingBag size={18} color="var(--accent-red)" /> },
+  ];
+
+  const attractions = [
+    { title: 'ถ้ำตลอด (แลนด์มาร์กเมืองทุ่งสง)', distance: '1.2 กม.', info: 'ถ้ำธรรมชาติเดินทะลุผ่านภูเขาได้ ภายในประดิษฐานพระพุทธรูปปางไสยาสน์ขนาดใหญ่', icon: <Compass size={18} color="var(--accent-red)" /> },
+    { title: 'มูลนิธิซำปอกง (ศาลเจ้าแม่กวนอิม)', distance: '2.0 กม.', info: 'ที่ประดิษฐานพระโพธิสัตว์กวนอิมองค์ใหญ่ที่สุดในประเทศไทย เงียบสงบ ร่มรื่น', icon: <Compass size={18} color="var(--accent-red)" /> },
+    { title: 'อุทยานแห่งชาติน้ำตกโยง', distance: '8.5 กม.', info: 'สถานที่ท่องเที่ยวพักผ่อนยอดนิยมใกล้ชิดธรรมชาติ น้ำตกสวยงาม ร่มรื่นด้วยต้นไม้ใหญ่', icon: <Compass size={18} color="var(--accent-red)" /> },
+  ];
+
+  const eatAndCafe = [
+    { title: 'เจริญวรรณ แต่เตี๊ยม', distance: '300 เมตร', info: 'ร้านอาหารเช้าและติ่มซำนึ่งสดรสเด็ด บะกุดเต๋ร้อนๆ บริการเป็นกันเอง (เดิน 4 นาที)', icon: <UtensilsCrossed size={18} color="var(--accent-red)" /> },
+    { title: 'ภัตตาคารบุญญา (ร้านอาหารสุขใจ)', distance: '400 เมตร', info: 'ร้านระดับตำนานเปิดยาวนานกว่า 50 ปี แกงกะหรี่ไก่ สตูลิ้นหมู ขาหมูพะโล้', icon: <UtensilsCrossed size={18} color="var(--accent-red)" /> },
+    { title: 'Green Zone Coffee & Community', distance: '700 เมตร', info: 'คาเฟ่ร่มรื่นกลางเมือง เหมาะสำหรับนั่งพักผ่อนหรือนั่งทำงาน กาแฟพรีเมียมและเบเกอรี่ดีเยี่ยม', icon: <Coffee size={18} color="var(--accent-red)" /> },
   ];
 
 
@@ -104,10 +126,11 @@ export default function Facilities() {
           <div className="section-header text-center" style={{ marginBottom: '40px' }}>
             <span className="section-subtitle">OUR LOCATION & DIRECTIONS</span>
             <h2 className="section-title">ที่ตั้ง & แผนที่การเดินทาง</h2>
-            <p className="section-desc">ทำเลใจกลางเมืองทุ่งสง เดินทางเข้าออกได้สะดวก ใกล้แหล่งของกินและสถานที่สำคัญหลัก</p>
+            <p className="section-desc">ทำเลใจกลางเมืองทุ่งสง เดินทางเข้าออกได้สะดวก ใกล้แหล่งท่องเที่ยว ของกิน และสถานที่สำคัญหลัก</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '50px' }}>
+          {/* Top part: Map side-by-side with Transit Info */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '50px', marginBottom: '50px' }}>
             {/* Map wrapper */}
             <div>
               <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '20px', padding: '15px', height: '400px', boxShadow: 'var(--shadow-premium)', overflow: 'hidden' }}>
@@ -130,10 +153,10 @@ export default function Facilities() {
               </div>
             </div>
 
-            {/* Nearby list details */}
+            {/* Nearby travel points */}
             <div>
-              <h3 style={{ color: '#111', fontSize: '18px', marginBottom: '15px', borderBottom: '2px solid var(--accent-red)', paddingBottom: '5px' }}>📍 จุดเดินทาง & ร้านค้าใกล้เคียง</h3>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '30px' }}>
+              <h3 style={{ color: '#111', fontSize: '18px', marginBottom: '15px', borderBottom: '2px solid var(--accent-red)', paddingBottom: '5px' }}>📍 จุดเดินทาง & ร้านสะดวกซื้อใกล้เคียง</h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 {nearby.map((loc, index) => (
                   <div style={{ display: 'flex', gap: '15px', background: '#ffffff', padding: '15px', borderRadius: '12px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-soft)' }} key={index}>
                     <div style={{ marginTop: '3px' }}>{loc.icon}</div>
@@ -147,9 +170,53 @@ export default function Facilities() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
 
-              <h3 style={{ color: '#111', fontSize: '18px', marginBottom: '15px', borderBottom: '2px solid var(--accent-red)', paddingBottom: '5px' }}>🏢 สถานที่ราชการ & หน่วยงานสำคัญใกล้เคียง</h3>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+          {/* Bottom part: 3 Column Grid for Attractions, Food/Cafe, and Government Offices */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px' }}>
+            {/* Column 1: Tourist Attractions */}
+            <div>
+              <h3 style={{ color: '#111', fontSize: '18px', marginBottom: '15px', borderBottom: '2px solid var(--accent-red)', paddingBottom: '5px' }}>🏞️ สถานที่ท่องเที่ยวแนะนำ</h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {attractions.map((loc, index) => (
+                  <div style={{ display: 'flex', gap: '15px', background: '#ffffff', padding: '15px', borderRadius: '12px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-soft)' }} key={index}>
+                    <div style={{ marginTop: '3px' }}>{loc.icon}</div>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
+                        <strong style={{ color: '#111', fontSize: '14px' }}>{loc.title}</strong>
+                        <span style={{ color: 'var(--accent-red)', fontSize: '13px', fontWeight: 'bold' }}>{loc.distance}</span>
+                      </div>
+                      <p style={{ color: 'var(--text-gray)', fontSize: '12px', lineHeight: '1.4' }}>{loc.info}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Column 2: Eateries and Cafes */}
+            <div>
+              <h3 style={{ color: '#111', fontSize: '18px', marginBottom: '15px', borderBottom: '2px solid var(--accent-red)', paddingBottom: '5px' }}>🍽️ ร้านอาหารเด็ด & คาเฟ่ชื่อดัง</h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {eatAndCafe.map((loc, index) => (
+                  <div style={{ display: 'flex', gap: '15px', background: '#ffffff', padding: '15px', borderRadius: '12px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-soft)' }} key={index}>
+                    <div style={{ marginTop: '3px' }}>{loc.icon}</div>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
+                        <strong style={{ color: '#111', fontSize: '14px' }}>{loc.title}</strong>
+                        <span style={{ color: 'var(--accent-red)', fontSize: '13px', fontWeight: 'bold' }}>{loc.distance}</span>
+                      </div>
+                      <p style={{ color: 'var(--text-gray)', fontSize: '12px', lineHeight: '1.4' }}>{loc.info}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Column 3: Government Offices */}
+            <div>
+              <h3 style={{ color: '#111', fontSize: '18px', marginBottom: '15px', borderBottom: '2px solid var(--accent-red)', paddingBottom: '5px' }}>🏢 สถานที่ราชการ & หน่วยงานสำคัญ</h3>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '10px' }}>
                 {governmentOffices.map((loc, index) => (
                   <div style={{ display: 'flex', gap: '10px', background: '#fdfdfd', padding: '10px 15px', borderRadius: '8px', border: '1px solid var(--border-color)', alignItems: 'center', justifyContent: 'space-between' }} key={index}>
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
@@ -166,7 +233,6 @@ export default function Facilities() {
                 ))}
               </div>
             </div>
-
           </div>
 
         </div>

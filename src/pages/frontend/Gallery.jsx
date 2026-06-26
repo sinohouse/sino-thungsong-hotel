@@ -3,21 +3,13 @@ import { AppContext } from '../../context/AppContext';
 import { Image as ImageIcon, Star, Check } from 'lucide-react';
 
 export default function Gallery() {
-  const { reviews } = useContext(AppContext);
+  const { reviews, gallery } = useContext(AppContext);
   const [filter, setFilter] = useState('all');
   
   // Reviews submit handling states inside gallery page
   const [localReviews, setLocalReviews] = useState(reviews);
   const [form, setForm] = useState({ name: '', comment: '', rating: 5 });
   const [submitted, setSubmitted] = useState(false);
-
-  const photos = [
-    { src: 'https://img1.wsimg.com/isteam/ip/915f6e68-1bd0-4cdd-a2b6-3e7af70abe43/%E0%B8%97%E0%B8%B8%E0%B9%88%E0%B8%87%E0%B8%AA%E0%B8%871762021_210621_262.jpg', category: 'exterior', title: 'โรงแรม ชิโน ทุ่งสง' },
-    { src: 'https://img1.wsimg.com/isteam/ip/915f6e68-1bd0-4cdd-a2b6-3e7af70abe43/%E0%B8%97%E0%B8%B8%E0%B9%88%E0%B8%87%E0%B8%AA%E0%B8%871762021_210621_34.jpg', category: 'rooms', title: 'ห้องพัก Deluxe King Room' },
-    { src: 'https://img1.wsimg.com/isteam/ip/915f6e68-1bd0-4cdd-a2b6-3e7af70abe43/%E0%B8%97%E0%B8%B8%E0%B9%88%E0%B8%87%E0%B8%AA%E0%B8%871762021_210621_169.jpg', category: 'rooms', title: 'ห้องพัก Twin Deluxe Room' },
-    { src: 'https://img1.wsimg.com/isteam/ip/915f6e68-1bd0-4cdd-a2b6-3e7af70abe43/fb_2683152491774748_1920x1080.jpg', category: 'lobby', title: 'เคาน์เตอร์ต้อนรับส่วนหน้า 24 ชม.' },
-    { src: 'https://img1.wsimg.com/isteam/ip/915f6e68-1bd0-4cdd-a2b6-3e7af70abe43/fb_3791118907644762_640x1316.jpg', category: 'exterior', title: 'สถานีรถไฟข้างโรงแรม' }
-  ];
 
   const handleReviewSubmit = (e) => {
     e.preventDefault();
@@ -36,7 +28,7 @@ export default function Gallery() {
     setTimeout(() => setSubmitted(false), 3000);
   };
 
-  const filteredPhotos = filter === 'all' ? photos : photos.filter(p => p.category === filter);
+  const filteredPhotos = filter === 'all' ? gallery : gallery.filter(p => p.category === filter);
 
   return (
     <div className="gallery-page" style={{ paddingTop: '120px', paddingBottom: '60px' }}>

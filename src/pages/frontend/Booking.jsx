@@ -68,6 +68,15 @@ export default function Booking() {
   }, []);
 
 
+  // --- RESET PROMO FOR FLASH SALE ROOM ---
+  useEffect(() => {
+    if (selectedRoomId === 'standard-flash-sale') {
+      setAppliedPromo(null);
+      setPromoCode('');
+      setPromoError('');
+    }
+  }, [selectedRoomId]);
+
   // Calculate nights
   const getNights = () => {
     if (!checkIn || !checkOut) return 1;
@@ -89,7 +98,7 @@ export default function Booking() {
   const basePrice = getBasePrice();
 
   const getDiscountAmount = () => {
-    if (!appliedPromo) return 0;
+    if (!appliedPromo || selectedRoomId === 'standard-flash-sale') return 0;
     if (appliedPromo.type === 'percent') {
       return Math.round((basePrice * appliedPromo.discount) / 100);
     }
@@ -256,11 +265,24 @@ export default function Booking() {
                         type="text" 
                         value={promoCode} 
                         onChange={e => setPromoCode(e.target.value)} 
-                        placeholder="กรอกรหัสส่วนลด" 
-                        style={{ padding: '8px 12px', fontSize: '13px' }}
+                        placeholder={selectedRoomId === 'standard-flash-sale' ? "ไม่ร่วมโปรโมชัน" : "กรอกรหัสส่วนลด"} 
+                        disabled={selectedRoomId === 'standard-flash-sale'}
+                        style={{ padding: '8px 12px', fontSize: '13px', backgroundColor: selectedRoomId === 'standard-flash-sale' ? '#f5f5f5' : '#fff' }}
                       />
-                      <button type="button" onClick={handleApplyPromo} className="btn btn-outline btn-sm">ใช้โค้ด</button>
+                      <button 
+                        type="button" 
+                        onClick={handleApplyPromo} 
+                        disabled={selectedRoomId === 'standard-flash-sale'}
+                        className="btn btn-outline btn-sm"
+                      >
+                        ใช้โค้ด
+                      </button>
                     </div>
+                    {selectedRoomId === 'standard-flash-sale' && (
+                      <span style={{ fontSize: '11px', color: 'var(--accent-red)', display: 'block', marginTop: '4px', fontWeight: 'bold' }}>
+                        * ห้องพักโปรโมชันแฟลชเซลล์ ไม่สามารถใช้โค้ดส่วนลดเพิ่มเติมได้
+                      </span>
+                    )}
                     {promoError && <span style={{ fontSize: '11px', color: 'var(--accent-red)', display: 'block', marginTop: '4px' }}>{promoError}</span>}
                     {appliedPromo && <span style={{ fontSize: '11px', color: '#4cd964', display: 'block', marginTop: '4px' }}>สำเร็จ! ลดทันที {appliedPromo.code}</span>}
                   </div>

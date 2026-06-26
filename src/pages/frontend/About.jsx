@@ -62,6 +62,14 @@ export default function About() {
                   <CheckCircle2 size={16} color="var(--accent-red)" />
                   <span>มีระบบกล้องวงจรปิด (CCTV) รอบโรงแรมและพนักงานดูแลลานจอดรถ</span>
                 </div>
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'center', color: '#111', fontSize: '14px', fontWeight: '600' }}>
+                  <CheckCircle2 size={16} color="var(--accent-red)" />
+                  <span>ร่วมพัฒนาอำเภอทุ่งสงให้มีที่พักและสิ่งอำนวยความสะดวกที่พร้อมต้อนรับแขกผู้มาเยือน</span>
+                </div>
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'center', color: '#111', fontSize: '14px', fontWeight: '600' }}>
+                  <CheckCircle2 size={16} color="var(--accent-red)" />
+                  <span>มุ่งมั่นให้บริการเพื่อตอบโจทย์ความคุ้มค่าและความประทับใจสูงสุดของลูกค้า</span>
+                </div>
               </div>
             </div>
             <div>

@@ -23,6 +23,8 @@ import Dashboard from './pages/backend/Dashboard';
 import BookingAdmin from './pages/backend/BookingAdmin';
 import RoomAdmin from './pages/backend/RoomAdmin';
 import PromoAdmin from './pages/backend/PromoAdmin';
+import GalleryAdmin from './pages/backend/GalleryAdmin';
+import BlogAdmin from './pages/backend/BlogAdmin';
 import UserAdmin from './pages/backend/UserAdmin';
 
 // Wrapper component to selectively show/hide Client Header and Footer
@@ -65,6 +67,8 @@ function App() {
             <Route path="/admin/bookings" element={<BookingAdmin />} />
             <Route path="/admin/rooms" element={<RoomAdmin />} />
             <Route path="/admin/promotions" element={<PromoAdmin />} />
+            <Route path="/admin/gallery" element={<GalleryAdmin />} />
+            <Route path="/admin/blogs" element={<BlogAdmin />} />
             <Route path="/admin/users" element={<UserAdmin />} />
           </Routes>
         </NavigationWrapper>

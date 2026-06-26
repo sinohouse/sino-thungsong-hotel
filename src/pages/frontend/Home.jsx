@@ -25,10 +25,7 @@ export default function Home() {
           <h1 className="hero-title" style={{ fontSize: '48px' }}>โรงแรม ชิโน ทุ่งสง</h1>
           <p className="hero-desc">ยินดีต้อนรับสู่ที่พักระดับคุณภาพสไตล์โมเดิร์นชิโน เดินทางสะดวก สะอาด ปลอดภัย ใกล้สถานีรถไฟทุ่งสงเพียง 20 เมตร แผนกต้อนรับบริการตลอด 24 ชั่วโมง</p>
           
-          <div className="promo-badge">
-            <span className="badge-text">โปรโมชั่นพิเศษวันนี้</span>
-            <span className="badge-discount">ส่วนลดพิเศษเฉพาะการจองโดยตรงผ่านเบอร์โทรศัพท์</span>
-          </div>
+
 
           <div className="hero-actions">
             <Link to="/booking" className="btn btn-accent btn-large">
@@ -222,7 +219,7 @@ export default function Home() {
           </div>
 
           <div className="rooms-grid">
-            {rooms.slice(0, 2).map((room) => (
+            {['vip-business', 'standard-twin'].map(id => rooms.find(r => r.id === id)).filter(Boolean).map((room) => (
               <div className="room-card" key={room.id}>
                 <div className="room-img-container">
                   <img src={room.image} alt={room.name} className="room-img" />
