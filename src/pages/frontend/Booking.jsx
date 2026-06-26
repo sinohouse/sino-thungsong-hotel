@@ -335,15 +335,31 @@ export default function Booking() {
                   type: 'action',
                   action: {
                     type: 'message',
-                    label: 'เช็คสถานะการจอง 🔍',
-                    text: 'เช็คสถานะการจอง'
+                    label: 'เลือกห้องพัก 🛏️',
+                    text: 'เลือกห้องพัก'
+                  }
+                },
+                {
+                  type: 'action',
+                  action: {
+                    type: 'uri',
+                    label: 'จองด่วนผ่านเว็บ 📱',
+                    uri: 'https://thungsonghotel.com/booking'
                   }
                 },
                 {
                   type: 'action',
                   action: {
                     type: 'message',
-                    label: 'ติดต่อเจ้าหน้าที่ 📞',
+                    label: 'โปรโมชั่นพิเศษ 💸',
+                    text: 'โปรโมชั่นพิเศษ'
+                  }
+                },
+                {
+                  type: 'action',
+                  action: {
+                    type: 'message',
+                    label: 'ติดต่อเรา 📞',
                     text: 'ติดต่อเจ้าหน้าที่'
                   }
                 },
@@ -351,8 +367,8 @@ export default function Booking() {
                   type: 'action',
                   action: {
                     type: 'message',
-                    label: 'หน้าแรกโรงแรม 🏨',
-                    text: 'หน้าแรกโรงแรม'
+                    label: 'เช็คสถานะการจอง 🔍',
+                    text: 'เช็คสถานะการจอง'
                   }
                 }
               ]

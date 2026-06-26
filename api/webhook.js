@@ -525,8 +525,8 @@ const quickReplyPayload = {
       type: 'action',
       action: {
         type: 'message',
-        label: 'พิกัดโรงแรม 📍',
-        text: 'พิกัดโรงแรม'
+        label: 'เช็คสถานะการจอง 🔍',
+        text: 'เช็คสถานะการจอง'
       }
     }
   ]
