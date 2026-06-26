@@ -281,6 +281,123 @@ export default async function handler(req, res) {
             };
           });
 
+          const flashSaleBubble = {
+            type: 'bubble',
+            header: {
+              type: 'box',
+              layout: 'vertical',
+              backgroundColor: '#d92b2b',
+              contents: [
+                {
+                  type: 'text',
+                  text: '⚡ FLASH SALE ⚡',
+                  color: '#ffffff',
+                  weight: 'bold',
+                  size: 'xs',
+                  align: 'center'
+                },
+                {
+                  type: 'text',
+                  text: '฿509 / คืน',
+                  color: '#ffffff',
+                  weight: 'bold',
+                  size: 'xl',
+                  align: 'center',
+                  margin: 'sm'
+                },
+                {
+                  type: 'text',
+                  text: 'ไม่ต้องใช้โค้ดลดเพิ่ม',
+                  color: '#ffffff',
+                  size: 'sm',
+                  align: 'center',
+                  margin: 'xs'
+                }
+              ]
+            },
+            body: {
+              type: 'box',
+              layout: 'vertical',
+              contents: [
+                {
+                  type: 'text',
+                  text: 'โปรโมชั่นแฟลชเซลล์ (Flash Sale Room)',
+                  size: 'sm',
+                  wrap: true,
+                  weight: 'bold',
+                  align: 'center'
+                },
+                {
+                  type: 'box',
+                  layout: 'vertical',
+                  margin: 'lg',
+                  spacing: 'sm',
+                  contents: [
+                    {
+                      type: 'box',
+                      layout: 'baseline',
+                      contents: [
+                        {
+                          type: 'text',
+                          text: 'เงื่อนไขพัก:',
+                          size: 'xxs',
+                          color: '#aaaaaa',
+                          flex: 2
+                        },
+                        {
+                          type: 'text',
+                          text: 'ไม่ร่วมโค้ดลดเพิ่ม',
+                          size: 'xxs',
+                          color: '#666666',
+                          flex: 3
+                        }
+                      ]
+                    },
+                    {
+                      type: 'box',
+                      layout: 'baseline',
+                      contents: [
+                        {
+                          type: 'text',
+                          text: 'การใช้งาน:',
+                          size: 'xxs',
+                          color: '#aaaaaa',
+                          flex: 2
+                        },
+                        {
+                          type: 'text',
+                          text: 'จองด่วนราคาพิเศษเฉพาะเว็บ',
+                          size: 'xxs',
+                          color: '#666666',
+                          flex: 3
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            footer: {
+              type: 'box',
+              layout: 'vertical',
+              spacing: 'sm',
+              contents: [
+                {
+                  type: 'button',
+                  style: 'primary',
+                  color: '#d92b2b',
+                  action: {
+                    type: 'uri',
+                    label: 'จองโปรโมชั่นนี้ 📱',
+                    uri: 'https://thungsonghotel.com/booking?roomId=standard-flash-sale'
+                  }
+                }
+              ]
+            }
+          };
+
+          const allPromoBubbles = [flashSaleBubble, ...promoBubbles];
+
           await replyMessage(replyToken, [
             {
               type: 'text',
@@ -291,7 +408,7 @@ export default async function handler(req, res) {
               altText: 'โปรโมชันพิเศษ',
               contents: {
                 type: 'carousel',
-                contents: promoBubbles
+                contents: allPromoBubbles
               }
             }
           ]);
