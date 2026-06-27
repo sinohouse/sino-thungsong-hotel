@@ -77,12 +77,7 @@ export default function Login() {
             <button type="submit" className="btn btn-accent btn-block btn-large">เข้าสู่ระบบ</button>
           </form>
 
-          {/* Helper details to help testing */}
-          <div style={{ marginTop: '25px', background: 'rgba(255,255,255,0.02)', padding: '15px', borderRadius: '10px', fontSize: '12px', color: '#a1a1b5', border: '1px solid rgba(255,255,255,0.05)' }}>
-            <strong style={{ color: '#fff', display: 'block', marginBottom: '5px' }}>บัญชีสำหรับทดลองระบบหลังบ้าน:</strong>
-            <p>• Super Admin: User = <code>admin</code> / Password = <code>admin123</code></p>
-            <p>• Receptionist: User = <code>reception</code> / Password = <code>rec123</code></p>
-          </div>
+
         </div>
       </div>
     </div>
