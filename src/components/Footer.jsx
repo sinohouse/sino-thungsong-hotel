@@ -13,7 +13,7 @@ export default function Footer() {
           <h4>ลิงก์ด่วน</h4>
           <Link to="/">หน้าแรก</Link>
           <Link to="/rooms">ห้องพัก</Link>
-          <Link to="/promotions">โปรโมชัน</Link>
+          <Link to="/rooms#exclusive-offers">โปรโมชัน</Link>
           <Link to="/blog">บทความท่องเที่ยว</Link>
           <Link to="/login">ระบบหลังบ้าน (Admin Panel)</Link>
         </div>

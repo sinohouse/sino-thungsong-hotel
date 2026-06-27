@@ -13,60 +13,41 @@ export default function Blog() {
     if (!blog) {
       return (
         <div style={{ padding: '150px 20px', textAlign: 'center' }}>
-          <h2 style={{ color: '#fff', marginBottom: '20px' }}>ไม่พบบทความที่ต้องการ</h2>
+          <h2 style={{ color: 'var(--text-dark)', marginBottom: '20px' }}>ไม่พบบทความที่ต้องการ</h2>
           <Link to="/blog" className="btn btn-primary">กลับหน้าบทความทั้งหมด</Link>
         </div>
       );
     }
 
     return (
-      <div className="blog-detail-page" style={{ paddingTop: '100px', minHeight: '100vh', paddingBottom: '60px' }}>
+      <div className="blog-detail-page" style={{ paddingTop: '120px', minHeight: '100vh', paddingBottom: '60px' }}>
         <section className="blog-section">
           <div className="section-container" style={{ maxWidth: '900px' }}>
-            <Link to="/blog" style={{ color: '#e2c077', marginBottom: '25px', display: 'inline-block', fontSize: '14px' }}>
+            <Link to="/blog" style={{ color: 'var(--accent-red)', marginBottom: '25px', display: 'inline-block', fontSize: '14px', fontWeight: 'bold' }}>
               &larr; กลับหน้าบทความทั้งหมด
             </Link>
             
             {/* Header Banner Cover with Overlay Texts */}
-            <div style={{ 
-              position: 'relative', 
-              borderRadius: '24px', 
-              overflow: 'hidden', 
-              height: '450px', 
-              marginBottom: '40px', 
-              boxShadow: 'var(--shadow-premium)',
-              border: '1px solid rgba(255,255,255,0.05)'
-            }}>
+            <div className="blog-detail-banner">
               <img src={blog.image} alt={blog.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               {/* Premium dark gradient overlay */}
-              <div style={{ 
-                position: 'absolute', 
-                top: 0, 
-                left: 0, 
-                right: 0, 
-                bottom: 0, 
-                background: 'linear-gradient(to bottom, rgba(24,24,34,0.1) 0%, rgba(24,24,34,0.3) 40%, rgba(24,24,34,0.95) 100%)',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'flex-end',
-                padding: '40px 50px'
-              }}>
+              <div className="blog-detail-overlay">
                 <div style={{ display: 'flex', gap: '12px', marginBottom: '15px', flexWrap: 'wrap' }}>
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(226,192,119,0.2)', color: '#e2c077', padding: '6px 12px', borderRadius: '30px', fontSize: '11px', fontWeight: 'bold', border: '1px solid rgba(226,192,119,0.3)' }}>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(217,43,43,0.25)', color: '#fff', padding: '6px 12px', borderRadius: '30px', fontSize: '11px', fontWeight: 'bold', border: '1px solid rgba(217,43,43,0.35)' }}>
                     <Calendar size={12} />
                     {blog.date}
                   </span>
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', color: '#fff', padding: '6px 12px', borderRadius: '30px', fontSize: '11px' }}>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.15)', color: '#fff', padding: '6px 12px', borderRadius: '30px', fontSize: '11px' }}>
                     <User size={12} />
                     โดย โรงแรม ชิโน ทุ่งสง
                   </span>
                 </div>
-                <h1 style={{ color: '#fff', fontSize: '32px', marginBottom: '15px', fontWeight: 'bold', lineHeight: '1.3', textShadow: '0 2px 4px rgba(0,0,0,0.6)' }}>{blog.title}</h1>
-                <p style={{ color: '#a1a1b5', fontSize: '14px', lineHeight: '1.6', margin: 0, borderLeft: '3px solid var(--accent-gold)', paddingLeft: '15px' }}>{blog.excerpt}</p>
+                <h1 className="blog-detail-title">{blog.title}</h1>
+                <p style={{ color: '#e2e8f0', fontSize: '14px', lineHeight: '1.6', margin: 0, borderLeft: '3px solid var(--accent-red)', paddingLeft: '15px' }}>{blog.excerpt}</p>
               </div>
             </div>
 
-            <div style={{ color: '#f1f1f5', fontSize: '16px', lineHeight: '1.8', whiteSpace: 'pre-wrap', padding: '0 10px' }}>{blog.content}</div>
+            <div style={{ color: 'var(--text-light)', fontSize: '16px', lineHeight: '1.8', whiteSpace: 'pre-wrap', padding: '0 10px' }}>{blog.content}</div>
           </div>
         </section>
       </div>
@@ -75,7 +56,7 @@ export default function Blog() {
 
   // Otherwise, show the list of blogs (5-10 articles)
   return (
-    <div className="blog-list-page" style={{ paddingTop: '100px' }}>
+    <div className="blog-list-page" style={{ paddingTop: '120px', paddingBottom: '60px' }}>
       <section className="blog-section">
         <div className="section-container">
           <div className="section-header text-center">
@@ -87,7 +68,7 @@ export default function Blog() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px' }}>
             {blogs.map((blog) => (
               <div 
-                style={{ backgroundColor: '#181822', border: '1px solid rgba(255,255,255,0.03)', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 8px 20px rgba(0,0,0,0.2)', transition: 'all 0.3s ease' }} 
+                style={{ backgroundColor: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '16px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', transition: 'all 0.3s ease' }} 
                 key={blog.id}
                 className="blog-card-hover"
               >
@@ -95,13 +76,13 @@ export default function Blog() {
                   <img src={blog.image} alt={blog.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <div style={{ padding: '25px' }}>
-                  <div style={{ display: 'flex', gap: '10px', color: '#a1a1b5', fontSize: '12px', marginBottom: '10px' }}>
+                  <div style={{ display: 'flex', gap: '10px', color: 'var(--text-gray)', fontSize: '12px', marginBottom: '10px' }}>
                     <Calendar size={12} />
                     <span>{blog.date}</span>
                   </div>
-                  <h3 style={{ color: '#fff', fontSize: '18px', marginBottom: '12px', lineHeight: '1.4', height: '50px', overflow: 'hidden' }}>{blog.title}</h3>
-                  <p style={{ color: '#a1a1b5', fontSize: '13px', lineHeight: '1.5', marginBottom: '20px', height: '60px', overflow: 'hidden' }}>{blog.excerpt}</p>
-                  <Link to={`/blog/${blog.id}`} style={{ color: '#e2c077', fontSize: '14px', fontWeight: 'bold', display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+                  <h3 style={{ color: 'var(--text-dark)', fontSize: '18px', marginBottom: '12px', lineHeight: '1.4', height: '50px', overflow: 'hidden' }}>{blog.title}</h3>
+                  <p style={{ color: 'var(--text-gray)', fontSize: '13px', lineHeight: '1.5', marginBottom: '20px', height: '60px', overflow: 'hidden' }}>{blog.excerpt}</p>
+                  <Link to={`/blog/${blog.id}`} style={{ color: 'var(--accent-red)', fontSize: '14px', fontWeight: 'bold', display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
                     <span>อ่านเพิ่มเติม</span>
                     <ChevronRight size={14} />
                   </Link>

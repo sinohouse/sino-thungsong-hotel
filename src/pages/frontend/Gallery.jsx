@@ -104,7 +104,7 @@ export default function Gallery() {
             <p className="section-desc">ร่วมแบ่งปันประสบการณ์การพักผ่อนและการเดินทางเพื่อพัฒนาบริการของเรา</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '50px', alignItems: 'start' }}>
+          <div className="grid-1-2fr" style={{ alignItems: 'start', gap: '50px' }}>
             {/* Reviews listing */}
             <div>
               <h3 style={{ color: '#111', fontSize: '18px', marginBottom: '20px' }}>รีวิวจากผู้เข้าพักล่าสุด</h3>

@@ -20,7 +20,7 @@ export default function RoomDetail() {
   }
 
   return (
-    <div className="room-detail-page" style={{ paddingTop: '100px', minHeight: '100vh', backgroundColor: '#fcfcfc' }}>
+    <div className="room-detail-page" style={{ paddingTop: '120px', minHeight: '100vh', backgroundColor: '#fcfcfc', paddingBottom: '60px' }}>
       <section className="detail-section">
         <div className="section-container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px' }}>
           <button onClick={() => navigate('/rooms')} style={{ display: 'inline-flex', alignItems: 'center', color: 'var(--accent-red)', marginBottom: '30px', fontSize: '15px', fontWeight: 'bold' }}>
@@ -28,17 +28,17 @@ export default function RoomDetail() {
             ย้อนกลับไปหน้าห้องพัก
           </button>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '50px' }}>
+          <div className="grid-1-2fr" style={{ gap: '50px' }}>
             {/* Gallery / Image Block */}
             <div>
               <div style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: 'var(--shadow-premium)', marginBottom: '20px' }}>
-                <img src={room.image} alt={room.nameTh} style={{ width: '100%', height: '450px', objectFit: 'cover' }} />
+                <img src={room.image} alt={room.nameTh} className="room-detail-img" />
               </div>
               <h1 style={{ color: 'var(--text-dark)', fontSize: '32px', marginBottom: '15px', fontFamily: 'Outfit' }}>{room.nameTh}</h1>
               <p style={{ color: 'var(--text-gray)', fontSize: '16px', lineHeight: '1.6', marginBottom: '30px' }}>{room.desc}</p>
               
               <h3 style={{ color: 'var(--text-dark)', fontSize: '20px', marginBottom: '15px' }}>สิ่งอำนวยความสะดวกในห้องพัก</h3>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
+              <div className="amenities-grid-detail">
                 {room.amenities.map((am, index) => (
                   <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-light)', fontSize: '15px' }}>
                     <Check size={16} color="var(--accent-red)" />

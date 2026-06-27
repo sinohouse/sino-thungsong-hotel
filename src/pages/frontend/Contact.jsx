@@ -18,7 +18,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="contact-page" style={{ paddingTop: '100px' }}>
+    <div className="contact-page" style={{ paddingTop: '120px', paddingBottom: '60px' }}>
       <section className="contact-section">
         <div className="section-container">
           <div className="section-header text-center">
@@ -27,43 +27,43 @@ export default function Contact() {
             <p className="section-desc">คุณสามารถโทรจองห้องพัก สอบถามรายละเอียดเส้นทาง หรือเยี่ยมชมโรงแรมได้ตลอด 24 ชั่วโมง</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'start' }}>
+          <div className="grid-2col" style={{ alignItems: 'start', gap: '60px' }}>
             {/* Contact Info */}
             <div>
-              <h3 style={{ color: '#fff', fontSize: '22px', marginBottom: '25px' }}>ข้อมูลการติดต่อ</h3>
-              <p style={{ color: '#a1a1b5', fontSize: '15px', lineHeight: '1.6', marginBottom: '35px' }}>หากต้องการจองห้องพักเร่งด่วน แนะนำโทรจองโดยตรงกับทางเจ้าหน้าที่เคาน์เตอร์ส่วนหน้าเพื่อรับส่วนลดสูงสุดและคอนเฟิร์มสิทธิ์เข้าพักทันทีครับ</p>
+              <h3 style={{ color: 'var(--text-dark)', fontSize: '22px', marginBottom: '25px' }}>ข้อมูลการติดต่อ</h3>
+              <p style={{ color: 'var(--text-gray)', fontSize: '15px', lineHeight: '1.6', marginBottom: '35px' }}>หากต้องการจองห้องพักเร่งด่วน แนะนำโทรจองโดยตรงกับทางเจ้าหน้าที่เคาน์เตอร์ส่วนหน้าเพื่อรับส่วนลดสูงสุดและคอนเฟิร์มสิทธิ์เข้าพักทันทีครับ</p>
               
               <div style={{ display: 'flex', flexDirection: 'column', gap: '25px', marginBottom: '30px' }}>
                 <div style={{ display: 'flex', gap: '20px' }}>
-                  <div style={{ backgroundColor: 'rgba(226, 192, 119, 0.08)', width: '48px', height: '48px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <MapPin size={22} color="#e2c077" />
+                  <div style={{ backgroundColor: 'rgba(217, 43, 43, 0.08)', width: '48px', height: '48px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <MapPin size={22} color="var(--accent-red)" />
                   </div>
                   <div>
-                    <strong style={{ color: '#fff', fontSize: '15px', display: 'block', marginBottom: '4px' }}>ที่ตั้งโรงแรม</strong>
-                    <span style={{ color: '#a1a1b5', fontSize: '14px' }}>36/10 ถนนรถไฟ ตำบลปากแพรก อำเภอทุ่งสง จังหวัดนครศรีธรรมราช 80110</span>
+                    <strong style={{ color: 'var(--text-dark)', fontSize: '15px', display: 'block', marginBottom: '4px' }}>ที่ตั้งโรงแรม</strong>
+                    <span style={{ color: 'var(--text-gray)', fontSize: '14px' }}>36/10 ถนนรถไฟ ตำบลปากแพรก อำเภอทุ่งสง จังหวัดนครศรีธรรมราช 80110</span>
                   </div>
                 </div>
 
                 <div style={{ display: 'flex', gap: '20px' }}>
-                  <div style={{ backgroundColor: 'rgba(226, 192, 119, 0.08)', width: '48px', height: '48px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <Phone size={22} color="#e2c077" />
+                  <div style={{ backgroundColor: 'rgba(217, 43, 43, 0.08)', width: '48px', height: '48px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Phone size={22} color="var(--accent-red)" />
                   </div>
                   <div>
-                    <strong style={{ color: '#fff', fontSize: '15px', display: 'block', marginBottom: '4px' }}>โทรศัพท์</strong>
-                    <span style={{ color: '#a1a1b5', fontSize: '14px' }}>
-                      <a href="tel:0887572195" style={{ color: '#a1a1b5' }}>088-757-2195</a> , <a href="tel:075332088" style={{ color: '#a1a1b5' }}>075-332-088</a>
+                    <strong style={{ color: 'var(--text-dark)', fontSize: '15px', display: 'block', marginBottom: '4px' }}>โทรศัพท์</strong>
+                    <span style={{ color: 'var(--text-gray)', fontSize: '14px' }}>
+                      <a href="tel:0887572195" style={{ color: 'var(--text-light)', fontWeight: '600' }}>088-757-2195</a> , <a href="tel:075332088" style={{ color: 'var(--text-light)', fontWeight: '600' }}>075-332-088</a>
                     </span>
                   </div>
                 </div>
 
                 <div style={{ display: 'flex', gap: '20px' }}>
-                  <div style={{ backgroundColor: 'rgba(226, 192, 119, 0.08)', width: '48px', height: '48px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <Mail size={22} color="#e2c077" />
+                  <div style={{ backgroundColor: 'rgba(217, 43, 43, 0.08)', width: '48px', height: '48px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Mail size={22} color="var(--accent-red)" />
                   </div>
                   <div>
-                    <strong style={{ color: '#fff', fontSize: '15px', display: 'block', marginBottom: '4px' }}>อีเมลฝ่ายบริการ</strong>
-                    <span style={{ color: '#a1a1b5', fontSize: '14px' }}>
-                      <a href="mailto:RESERVATION@THUNGSONGHOTEL.COM" style={{ color: '#a1a1b5' }}>RESERVATION@THUNGSONGHOTEL.COM</a>
+                    <strong style={{ color: 'var(--text-dark)', fontSize: '15px', display: 'block', marginBottom: '4px' }}>อีเมลฝ่ายบริการ</strong>
+                    <span style={{ color: 'var(--text-gray)', fontSize: '14px' }}>
+                      <a href="mailto:RESERVATION@THUNGSONGHOTEL.COM" style={{ color: 'var(--text-light)', fontWeight: '600' }}>RESERVATION@THUNGSONGHOTEL.COM</a>
                     </span>
                   </div>
                 </div>
@@ -71,8 +71,8 @@ export default function Contact() {
             </div>
 
             {/* Contact Form */}
-            <div style={{ backgroundColor: '#181822', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '20px', padding: '35px' }}>
-              <h3 style={{ color: '#fff', fontSize: '20px', marginBottom: '25px' }}>ฝากข้อความถึงเรา</h3>
+            <div style={{ backgroundColor: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '20px', padding: '35px', boxShadow: 'var(--shadow-premium)' }}>
+              <h3 style={{ color: 'var(--text-dark)', fontSize: '20px', marginBottom: '25px' }}>ฝากข้อความถึงเรา</h3>
               
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
                 <div className="form-group">

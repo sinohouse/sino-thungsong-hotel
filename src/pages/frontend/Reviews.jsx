@@ -24,7 +24,7 @@ export default function Reviews() {
   };
 
   return (
-    <div className="reviews-page" style={{ paddingTop: '100px' }}>
+    <div className="reviews-page" style={{ paddingTop: '120px', paddingBottom: '60px' }}>
       <section className="reviews-section">
         <div className="section-container">
           <div className="section-header text-center">
@@ -33,23 +33,23 @@ export default function Reviews() {
             <p className="section-desc">ความพึงพอใจของลูกค้าคือสิ่งสำคัญที่สุด ร่วมแสดงความคิดเห็นหลังเข้าพักกับเรา</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '50px' }}>
+          <div className="grid-1-2fr" style={{ gap: '50px' }}>
             {/* Reviews list */}
             <div>
-              <h3 style={{ color: '#fff', fontSize: '20px', marginBottom: '20px' }}>รีวิวล่าสุด</h3>
+              <h3 style={{ color: 'var(--text-dark)', fontSize: '20px', marginBottom: '20px' }}>รีวิวล่าสุด</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 {localReviews.map((rev) => (
-                  <div style={{ backgroundColor: '#181822', padding: '25px', borderRadius: '15px', border: '1px solid rgba(255,255,255,0.03)' }} key={rev.id}>
+                  <div style={{ backgroundColor: '#ffffff', padding: '25px', borderRadius: '15px', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-soft)' }} key={rev.id}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
-                      <strong style={{ color: '#fff', fontSize: '15px' }}>{rev.name}</strong>
-                      <span style={{ fontSize: '12px', color: '#a1a1b5' }}>{rev.date}</span>
+                      <strong style={{ color: 'var(--text-dark)', fontSize: '15px' }}>{rev.name}</strong>
+                      <span style={{ fontSize: '12px', color: 'var(--text-gray)' }}>{rev.date}</span>
                     </div>
-                    <div style={{ display: 'flex', gap: '4px', color: '#e2c077', marginBottom: '15px' }}>
+                    <div style={{ display: 'flex', gap: '4px', color: 'var(--accent-red)', marginBottom: '15px' }}>
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={14} fill={i < rev.rating ? '#e2c077' : 'none'} color="#e2c077" />
+                        <Star key={i} size={14} fill={i < rev.rating ? 'var(--accent-red)' : 'none'} color="var(--accent-red)" />
                       ))}
                     </div>
-                    <p style={{ fontSize: '14px', color: '#a1a1b5', lineHeight: '1.5', fontStyle: 'italic' }}>"{rev.comment}"</p>
+                    <p style={{ fontSize: '14px', color: 'var(--text-gray)', lineHeight: '1.5', fontStyle: 'italic' }}>"{rev.comment}"</p>
                   </div>
                 ))}
               </div>
@@ -57,8 +57,8 @@ export default function Reviews() {
 
             {/* Submit review form */}
             <div>
-              <div style={{ backgroundColor: '#181822', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '20px', padding: '35px', position: 'sticky', top: '120px' }}>
-                <h3 style={{ color: '#fff', fontSize: '20px', marginBottom: '20px' }}>เขียนรีวิวของคุณ</h3>
+              <div style={{ backgroundColor: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '20px', padding: '35px', position: 'sticky', top: '120px', boxShadow: 'var(--shadow-premium)' }}>
+                <h3 style={{ color: 'var(--text-dark)', fontSize: '20px', marginBottom: '20px' }}>เขียนรีวิวของคุณ</h3>
                 
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                   <div className="form-group">
@@ -75,7 +75,7 @@ export default function Reviews() {
                   <div className="form-group">
                     <label>คะแนนความพึงพอใจ</label>
                     <select 
-                      style={{ backgroundColor: '#212130', border: '1px solid rgba(255,255,255,0.05)', color: '#fff', padding: '12px 18px', borderRadius: '8px' }}
+                      style={{ backgroundColor: '#ffffff', border: '1px solid #ced4da', color: 'var(--text-light)', padding: '12px 18px', borderRadius: '8px' }}
                       value={form.rating} 
                       onChange={e => setForm({ ...form, rating: Number(e.target.value) })}
                     >

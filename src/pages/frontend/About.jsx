@@ -14,12 +14,12 @@ export default function About() {
           </div>
 
           {/* Block 1: History & Vision */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '50px', alignItems: 'center', marginBottom: '60px' }}>
+          <div className="grid-2col" style={{ marginBottom: '60px' }}>
             <div>
               <img 
-                src="https://img1.wsimg.com/isteam/ip/915f6e68-1bd0-4cdd-a2b6-3e7af70abe43/fb_2683152491774748_1920x1080.jpg" 
+                src="https://img2.pic.in.th/618721050_1269673758515995_7127498111618290204_n.jpg" 
                 alt="ประวัติ โรงแรมชิโน ทุ่งสง" 
-                style={{ width: '100%', height: '420px', objectFit: 'cover', borderRadius: '20px', boxShadow: 'var(--shadow-premium)' }} 
+                className="about-grid-img" 
               />
             </div>
             <div>
@@ -38,8 +38,8 @@ export default function About() {
           </div>
 
           {/* Block 2: Mission & Values */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '50px', alignItems: 'center', marginBottom: '80px' }}>
-            <div style={{ order: window.innerWidth < 991 ? 0 : 2 }}>
+          <div className="grid-2col reverse-mobile" style={{ marginBottom: '80px' }}>
+            <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--accent-red)', marginBottom: '15px' }}>
                 <Compass size={24} />
                 <span style={{ fontSize: '14px', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px' }}>Our Mission</span>
@@ -74,9 +74,9 @@ export default function About() {
             </div>
             <div>
               <img 
-                src="https://img1.wsimg.com/isteam/ip/915f6e68-1bd0-4cdd-a2b6-3e7af70abe43/fb_3791118907644762_640x1316.jpg" 
+                src="https://img1.pic.in.th/images/475136270_991169876366386_2240705808150185650_n.jpg" 
                 alt="วิสัยทัศน์ชิโน ทุ่งสง" 
-                style={{ width: '100%', height: '420px', objectFit: 'cover', borderRadius: '20px', boxShadow: 'var(--shadow-premium)' }} 
+                className="about-grid-img" 
               />
             </div>
           </div>

@@ -130,10 +130,10 @@ export default function Facilities() {
           </div>
 
           {/* Top part: Map side-by-side with Transit Info */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '50px', marginBottom: '50px' }}>
+          <div className="grid-1-1fr" style={{ marginBottom: '50px' }}>
             {/* Map wrapper */}
             <div>
-              <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '20px', padding: '15px', height: '400px', boxShadow: 'var(--shadow-premium)', overflow: 'hidden' }}>
+              <div className="map-container-wrapper">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15783.568461715454!2d99.67389146132717!3d8.163202525492167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30537be6c7a36c5d%3A0xc3b381534b12dfbf!2z4LmC4Lij4LiH4LmB4Lij4LihIOC4quC4tOC5guC4mSDguJfguLjguYjguIc!5e0!3m2!1sth!2sth!4v1700000000000!5m2!1sth!2sth" 
                   width="100%" 

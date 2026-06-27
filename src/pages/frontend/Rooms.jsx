@@ -1,10 +1,22 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
 import { Gift, CheckCircle, Flame, ArrowRight } from 'lucide-react';
 
 export default function Rooms() {
   const { rooms, promotions, getAvailableAllotment } = useContext(AppContext);
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash === '#exclusive-offers') {
+      const element = document.getElementById('exclusive-offers');
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [hash]);
 
   // Separate normal rooms and flash sale promotion rooms
   const normalRooms = rooms.filter(room => room.id !== 'standard-flash-sale');
@@ -16,7 +28,7 @@ export default function Rooms() {
         <div className="section-container">
           
           {/* Integrated Promotions Section (Top Section) */}
-          <div className="section-header text-center" style={{ marginBottom: '40px' }}>
+          <div id="exclusive-offers" className="section-header text-center" style={{ marginBottom: '40px' }}>
             <span className="section-subtitle">EXCLUSIVE OFFERS</span>
             <h2 className="section-title">โค้ดส่วนลด & โปรโมชันพิเศษ</h2>
             <p className="section-desc">กรอกโค้ดส่วนลดหรือเลือกจองห้องพักราคาพิเศษสุดคุ้มจากแคมเปญด้านล่างนี้</p>

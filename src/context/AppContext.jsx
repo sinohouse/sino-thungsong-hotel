@@ -200,7 +200,7 @@ export const AppProvider = ({ children }) => {
         // 7. Fetch Gallery Photos
         try {
           const { data: galleryData, error: galleryErr } = await supabase.from('gallery').select('*');
-          if (!galleryErr && galleryData) {
+          if (!galleryErr && galleryData && galleryData.length > 0) {
             setGallery(galleryData);
           } else {
             const defaultPhotos = [
