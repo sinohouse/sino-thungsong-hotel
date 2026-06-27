@@ -178,7 +178,7 @@ export const AppProvider = ({ children }) => {
             }
           ];
 
-          if (!blogsErr && blogsData && blogsData.length >= 6) {
+          if (!blogsErr && blogsData && blogsData.length > 0) {
             setBlogs(blogsData);
           } else {
             setBlogs(defaultBlogs);
