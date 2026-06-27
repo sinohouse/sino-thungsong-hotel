@@ -598,6 +598,14 @@ export default async function handler(req, res) {
           ]);
         }
       }
+    } else if (event.type === 'follow') {
+      const replyToken = event.replyToken;
+      await replyMessage(replyToken, [
+        {
+          type: 'text',
+          text: '🏨 ยินดีต้อนรับสู่ โรงแรม ชิโน @ ทุ่งสง (Sino @ Thungsong Hotel) ครับ! ✨\n\nที่พักสะอาด สะดวก ปลอดภัย ใกล้สถานีรถไฟทุ่งสงเพียง 20 เมตร ยินดีให้บริการแผนกต้อนรับตลอด 24 ชั่วโมงครับ\n\nท่านสามารถเลือกรายการเมนูด้านล่างนี้เพื่อใช้บริการด่วนได้ทันทีครับ 👇'
+        }
+      ]);
     }
   }
 
